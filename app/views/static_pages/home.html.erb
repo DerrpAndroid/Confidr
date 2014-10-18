@@ -1,12 +1,260 @@
-<% provide(:title, "Home") %>
-
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-  <title><%=yield(:title) %> | Confidr</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= stylesheet_link_tag 'normalize', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'component', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'main', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'custom', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery-1.10.2.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,700,900' rel='stylesheet' type='text/css'>
+  <script>
+      $(document).ready(function(){
+          var button_flag_mail=0;
+          $("#clear_login").click(function(){
+              $(".header_top").fadeOut("slow");
+              $(".container").fadeOut("slow");
+              $("#theForm").fadeIn(1000);
+          });
+          $(".reg_but").click(function(){
+
+              $(".register_options").css({
+                  "marginTop":"5%",
+              });
+              switch(this.id){
+
+                  case 'reg_mail':
+                      if(!button_flag_mail)
+                      {
+                          $("#reg_mail").css({
+                              "width":"100%",
+                              "borderRadius":"4px",
+                              "borderBottomLeftRadius":"0px",
+                              "borderBottomRightRadius":"0px",
+                              "border":"none",
+                          });
+                          $("#reg_socm").css({
+                              "width":"0%",
+                          });
+                          $("#reg_socm").fadeOut(100);
+                          $(".regforms").html('<form id="home_reg" action="" method=""><input type="text" id="home_reg_name" placeholder="John Doe"><input type="email" id="home_reg_mail" placeholder="john@doe.com"><input type="password" id="home_reg_password" placeholder="Password" style="width:600px;"><input type="password" id="home_reg_password" placeholder="Re-Enter Password" style="width:600px;"> </form>');
+                          button_flag_mail=1;
+                      }
+                      else if(button_flag_mail)
+                      {
+                          alert("Submited Form");
+                      }
+                      break;
+
+                  case 'reg_socm':
+                      $("#reg_socm").css({
+                          "width":"100%",
+                          "borderRadius":"4px",
+                          "borderBottomLeftRadius":"0px",
+                          "borderBottomRightRadius":"0px",
+                          "border":"none",
+                      });
+                      $("#reg_mail").css({
+                          "width":"0%",
+                      });
+                      $("#reg_mail").fadeOut(100);
+                      break;
+
+              }
+          });
+
+
+      });
+  </script>
+
 </head>
 <body>
-<h1>stuff</h1>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
+<!-- Add your site or application content here -->
+<div class="screen">
+  <div class="row header_top">
+    <div class="col-xs-12">
+      <div class="col-xs-4"><h2><a href="#">Confidr</a></h2></div>
+      <div class="col-xs-8 menu_items">
+        <ul>
+          <li class="active"><h4><%= link_to "Login", '#', id:"clear_login" %></h4></li>
+          <li><h4><%= link_to "About ", static_pages_about_path %></h4></li>
+          <li><h4><%= link_to "Home", '#' %></h4></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <%= video_tag("stock-footage-flying-on-clouds-at-sunset-high-detailed-d-render-loop.mp4",loop:true, controls: false, autoplay: true,class:"bg_video", width:"100%")%>
+  <!--  <div id="dotted_overlay"></div> -->
+
+  <div class="row actual-heading bold-heading">
+    <div class="col-xs-12 confidr">
+      <h2><span>Confidr.</span> It feels good here.</h2>
+      <br/>
+      <h4>Enlightened contentment through introspection, generosity + technology.</h4>
+    </div>
+    <div class="col-xs-12 knowmore" style="text-align:center;"><a href="#" id="knowmore_butt">Know More</a></div>
+  </div>
+  <div class="row register-login">
+    <div class="col-xs-12 register-forms">
+      <div class="col-xs-6 col-xs-offset-3 reg_stuff">
+        <div class="btn-group register_options">
+          <button type="button" class="btn btn-default reg_but" id="reg_mail">Register With Email</button>
+          <button type="button" class="btn btn-default reg_but" id="reg_socm">Register With Social Media</button>
+        </div>
+      </div>
+      <div class="col-xs-6 col-xs-offset-3 regforms"></div>
+
+    </div>
+  </div>
+</div>
+<div class="screen">
+  <h1 class="tut_heading"><span>Focus</span> on your feelings.</h1>
+  <div class="row banner-tut">
+    <div class="col-xs-offset-1 col-xs-4 tut_screen" id="tut1_desk">
+<%= link_to image_tag("stuff1.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, vel! Delectus ipsa, eveniet dicta eius.</p>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2 tut_screen" id="tut1_mob">
+      <%= link_to image_tag("iphone.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ipsam praesentium doloremque similique et provident!</p>
+    </div>
+  </div>
+</div>
+<hr class="fancy-line" style="margin-bottom:-1px"/>
+<div class="screen second_tut">
+  <h1 class="tut_heading"><span>Focus</span> on your feelings.</h1>
+  <div class="row banner-tut">
+    <div class="col-xs-offset-1 col-xs-4 tut_screen" id="tut1_desk">
+      <%= link_to image_tag("stuff1.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit <span>amet, consectetur</span> adipisicing elit. Commodi, vel! Delectus ipsa, eveniet dicta eius.</p>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2 tut_screen" id="tut1_mob">
+      <%= link_to image_tag("iphone.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ipsam praesentium doloremque <span>similique et provident!</span></p>
+    </div>
+  </div>
+</div>
+<hr class="fancy-line" style="margin-top:-1px"/>
+<div class="screen">
+  <h1 class="tut_heading"><span>Focus</span> on your feelings.</h1>
+  <div class="row banner-tut">
+    <div class="col-xs-offset-1 col-xs-4 tut_screen" id="tut1_desk">
+      <%= link_to image_tag("stuff1.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, vel! Delectus ipsa, eveniet dicta eius.</p>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2 tut_screen" id="tut1_mob">
+      <%= link_to image_tag("iphone.png", alt: "Tuturial Screen")%>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati ipsam praesentium doloremque similique et provident!</p>
+    </div>
+  </div>
+</div>
+<div class="screen">
+  <h1>Hey <span>Stupid</span>. Here is a Tutorial</h1>
+  <%=video_tag("stock-footage-flying-on-clouds-at-sunset-high-detailed-d-render-loop.mp4",loop:true, controls: false, autoplay: true,class:"tut_vid", width:"100%")%>
+</div>
+<div class="row footer">
+  <div class="col-xs-12">
+    <div class="col-xs-2 footer_social">
+      <span style="font-size:2em">Confidr</span>
+      <div class="social_butt">Facetube</div>
+      <div class="social_butt">Twitface</div>
+    </div>
+    <div class="col-xs-8 footer_mid"><div class="row upperaaron"><span style="font-size:2em">Aaron</span> says<br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam doloremque officiis, voluptas temporibus enim dolorem quibusdam possimus, vitae deleniti.</div><div class="row lowersitemap"><ul>
+      <li>Lorem.</li>
+      <li>Excepturi!</li>
+      <li>Sint.</li>
+      <li>Natus!</li>
+      <li>Vel!</li>
+    </ul></div></div>
+    <div class="col-xs-2 footer_contact">c</div>
+  </div>
+</div>
+<div class="row form_login">
+  <form id="theForm" class="simform" autocomplete="off" action="">
+    <div class="simform-inner">
+      <ol class="questions">
+        <li>
+          <span><label for="q1" id="first_label">Login ID</label></span>
+          <input id="name" name="name" type="text"/>
+        </li>
+        <li>
+          <span><label for="q2">Password</label></span>
+          <input id="email" name="email" type="text"/>
+        </li>
+
+
+      </ol><!-- /questions -->
+      <button class="submit" type="submit">Send answers</button>
+      <div class="controls">
+        <button class="next"></button>
+        <div class="progress"></div>
+
+        <span class="error-message"></span>
+      </div><!-- / controls -->
+    </div><!-- /simform-inner -->
+    <span class="final-message"></span>
+  </form><!-- /simform -->
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+<script src="js/classie.js"></script>
+<script src="js/stepsForm.js"></script>
+<script>
+    var theForm = document.getElementById( 'theForm' );
+
+    new stepsForm( theForm, {
+        onSubmit : function( form ) {
+            // hide form
+            classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+            $("#dev_mid_msg").css({"display":"none"});
+            /*
+             form.submit()
+             or
+             AJAX request (maybe show loading indicator while we don't have an answer..)
+             */
+
+
+            // let's just simulate something...
+            var messageEl = theForm.querySelector( '.final-message' );
+            messageEl.innerHTML = 'Asking around to check if it is really you...';
+            classie.addClass( messageEl, 'show' );
+        }
+    } );
+</script> <!-- form related stuff -->
 </body>
 </html>

@@ -1,0 +1,528 @@
+html,body{
+    height: 100%;
+    font-family: "Open Sans",sans-serif;
+    background-color:#f3f5fa; 
+}
+.screen{
+    height: 100%;
+    overflow: hidden;
+}
+h1,h2,h3{
+    text-align: center;
+    margin-bottom: 20px;
+}
+li{
+    list-style: none;
+    text-align: center;
+}
+.header_top li{
+    list-style: none;
+    float: right;
+}
+ul{
+    padding: 0;
+}
+a{
+    color: inherit;
+}
+a:hover{
+    text-decoration: none;
+    color: #f16555;
+}
+#dotted_overlay{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/dot.png);
+    background-repeat: repeat;
+}
+span{
+    color: #f16555;
+}
+/*==========================================================================================
+Header Styling
+==========================================================================================*/
+
+
+.header_top{
+    background: black;
+    color: #de9f39 ;
+    z-index: 100;
+}
+.header_top *{
+    z-index: 100;
+}
+.menu_items li{
+    margin-left: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+
+/*==========================================================================================
+BG Styling
+==========================================================================================*/
+
+.bg_video{
+    position: absolute;
+    top: -20px;
+    z-index: 0;
+     
+}
+
+/*==========================================================================================
+Home Content Styling
+==========================================================================================*/
+
+
+.feature_login .login{
+    height: 300px;
+}
+.form_container{
+    float: right;
+    height: 100%;
+    background: rgba(86,84,87,0.3);
+    width: 250px;
+    border-radius: 4px;
+    color: white;
+}
+.knowledge_bomb{
+    position: relative;
+}
+.knowledge_bomb span{
+        padding: 20px;
+        border: 1px solid black;
+    transition: .3s all linear;
+
+}
+.knowledge_bomb span:hover{
+        cursor: pointer;
+        padding: 20px;
+        border: 1px solid white;
+        background: #de9f39;
+        color: white;
+        border-radius: 5px;
+}
+.header_top{
+    height: 25%;
+}
+.padding-row{
+    height: 100%;
+    background: red;
+}
+
+.actual-heading{
+    height: 50%;
+}
+.confidr h2{   
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 4em;
+    font-weight: 700;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 0;
+    
+}
+.confidr h4{
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: white;
+}
+.confidr span{
+    color: #f16555;
+}
+.knowmore{
+    margin-top: 25px;
+}
+#knowmore_butt{
+    padding: 15px;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.3);
+    transition: .2s all linear;
+}
+#knowmore_butt:hover{
+    border-radius: 3px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.3);
+}
+.register-login{
+    height: 25%;
+}
+.register-login .register-forms{
+    background: rgba(0,0,0,.3);
+    height: 100%;
+}
+
+.register_options{
+    margin-top: 12.5%;
+    width: 600px;
+    transition: .3s all linear;
+}
+.register_options button{
+    width: 50%;
+    transition: .2s all linear;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default{
+    background-color: #f16555;
+    color: white;
+}
+
+#home_reg input{
+    width: 300px;
+    height: 30px;
+    border:none;
+    background: rgba(0,0,0,.5);
+    color: white;
+}
+#home_reg input::-webkit-input-placeholder {
+    padding-left: 5px;
+}
+#home_reg input:focus{
+    outline:  #f16555 auto 5px;
+}
+/*==========================================================================================
+Tutorial Styling
+==========================================================================================*/
+.tut_heading span{
+    color: #f16555;
+}
+
+.tut_screen p{
+    visibility: hidden;
+}
+#tut1_desk{
+    -webkit-transform:scale(.8);
+    transition: .2s all linear;
+}
+#tut1_mob{
+    -webkit-transform:scale(.8);
+    transition: .2s all linear;
+}
+#tut1_desk:hover{
+    -webkit-transform:scale(1);
+}
+#tut1_desk:hover > p{
+    visibility: visible;
+}
+#tut1_mob:hover > p{
+    visibility: visible;
+}
+#tut1_mob:hover{
+    -webkit-transform:scale(1);
+}
+
+/*==========================================================================================
+HR Styling
+==========================================================================================*/
+
+hr.fancy-line { 
+    border: 0; 
+    height: 3px;
+
+}
+hr.fancy-line:before {
+    top: -0.5em;
+    height: 1em;
+}
+hr.fancy-line:after {
+    content:'';
+    height: 0.5em;
+    top: 3px;
+}
+
+hr.fancy-line:before, hr.fancy-line:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+}
+
+hr.fancy-line, hr.fancy-line:before {
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 75%);
+}
+
+.second_tut, hr.fancy-line:after {
+    background: #f4f4f4;
+}
+
+/*==========================================================================================
+Footer Styling
+==========================================================================================*/
+.footer{
+    height: 150px;
+    background: black;
+    color: white;
+}
+.social_butt{
+    height: 50px;
+    width: 80%;
+    border: 1px solid black;
+    margin: 10px;
+}
+.upperaaron{
+    height: 120px;
+}
+.lowersitemap li{
+    float: left;
+}
+
+/*==========================================================================================
+Login Content Styling
+==========================================================================================*/
+
+.top_row{
+    height: 13%;
+}
+
+
+.bot_row{
+    height: 15%;
+}
+
+.row .col-xs-2{
+    background: white;
+    height: inherit;
+}
+.row .col-xs-8{
+    background: white;
+    height: inherit;
+}
+.row .col-xs-7{
+    background: white;
+    height: inherit;
+}
+
+/*==========================================================================================
+Metrics Content Styling
+==========================================================================================*/
+.metrics{
+    position: absolute;
+    right: 4%;
+    top: 13%;
+}
+
+
+/*==========================================================================================
+Grid 4 Styling
+==========================================================================================*/
+
+.tag_list{
+    margin-top: 30px;
+}
+.tag_list li{
+    padding: 20px;
+    margin: 1px;
+    border-bottom: 1px solid black;
+}
+.tag_list li.last{
+    border-bottom: none;
+}
+.tag_col{
+    transition: .3s all linear;
+    position: absolute;
+}
+.tag_col span{
+    display: none;
+    float: right;
+}
+.tag_col li:hover{
+    border-radius: 3px;
+    border-bottom: 1px solid white;
+    background: #f16555;
+    color: white;
+    text-align: left;
+}
+.tag_col a{
+    font-size: 1.3em;
+}
+.tag_col a:hover{
+    color: white;
+}
+.tag_col li:hover>img{
+    display: block;
+}
+.tag_col li img{
+    float: right;
+    display: none;
+}
+/*==========================================================================================
+Grid 5 Styling
+==========================================================================================*/
+
+.center_main{
+    transition: .3s transform linear;
+    position: absolute;
+    top: 13%;
+    left: 20%;
+}
+label{
+    font-size: 1.7em;
+    color: white;
+}
+#post_body,#post_heading{
+    transition: .3s all ease-out;
+    float: left;
+}
+.post_body,.post_heading{
+    transition: .3s all ease-out;
+}
+#post_heading{
+    width: 100%;
+    border: none;
+    margin:0;
+    font-size: 1.6em;
+    display: block;
+    padding: 0.5em 1em 0.5em 0.7em;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    color: black;
+}
+.post_heading{
+    margin-top: 30px;
+}
+#post_heading:focus{
+    outline: white auto 1px;
+}
+#post_body{
+    outline: white auto 1px;
+}
+#post_body{
+    width: 100%;
+    height: 79%;
+    margin-top: 50px;
+    border: none;
+    font-size: 1.3em;
+    display: block;
+    margin: 0.3em 0 0 0;
+    padding: 0.5em 1em 0.5em 0.7em;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    color: black;
+    resize: none;
+    letter-spacing: 2px;
+}
+
+.tag_submit{
+    display: none;
+    float: right;
+    margin-top: -52px;
+    margin-right: 20px;
+}
+.tags_stuff li button{
+    width: 115px;
+    -webkit-appearance:none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+.tags_stuff li button.last{
+    border-bottom: none;
+}
+.tags_stuff li button:hover{
+    background: #f16555;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.prompt{
+    margin: 15px;
+    padding: 5px;
+    background: #f16555;
+    color: white;
+    float: left;
+    cursor: pointer;
+    display: none;
+    border-radius: 3px;
+}
+
+/*==========================================================================================
+Grid 8 Styling
+==========================================================================================*/
+
+.row .noti_container{
+    height: 18%;
+    position: absolute;
+    bottom: 4%;
+    left: 16%;
+    transition: .3s all linear;
+}
+
+.notification{
+    padding: 1px;
+    height: 100%;
+    border-radius: 4px;
+    transition: .3s all linear;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.notification:hover{
+    padding: 1px;
+    height: 100%;
+}
+.close_noti{
+    display: none;
+}
+.curated_c{
+
+}
+.old_post{
+    -webkit-filter:saturate(.5);
+}
+
+
+/*==========================================================================================
+boxed styling Styling
+==========================================================================================*/
+.mid_row{
+    height: 60%;
+}
+.tag_col{
+    left: 1%;
+}
+.metrics{
+    left: 82%;
+}
+.center_main{
+    left: 20.5%;
+}
+.row .noti_container{
+    left: 20.5%;
+}
+.bot_row{
+    margin-top: 2.8%;
+}
+.col-xs-7,.col-xs-2{
+    box-shadow: 0px 0px 2px #dfe3ee;*/
+    
+}
+
+.top_row .col-xs-2, .top_row .col-xs-8{
+    height: 50px;
+    box-shadow: none;
+    background: #f16555;
+   
+
+}
+
+.mid_row .col-xs-2,.mid_row .col-xs-7,.bot_row .col-xs-7{
+    border-radius: 3px;
+}
+
+
+.overlay{
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+}
+
