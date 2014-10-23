@@ -72,19 +72,28 @@
               });
               $(".close_noti").fadeOut("slow");
           });// close grid 8
-          $(".tag_col").click(function(){
+          $("#post_archives").click(function(){
               $(".tag_col").css({
                   "width":"98%",
                   "z-index":"100"
               });
+              $(".tag_list").css({
+                  display:"none",
+              });
               $(".close_tag").fadeIn("slow");
-
-          });// expand grin 4 doesnt work
+              $(".archivey-stuff").load("archives.html");
+             // $(".archivey-stuff").html('<%= render "archives_tags"%>');
+          });// expand grin 4 works
           $(".close_tag").click(function(){
               $(".tag_col").css({
-                  "width":"10%",
+                  "width":""
               });
-          });//close grid 4 doesnt work
+              $(".tag_list").css({
+                  display:"block",
+              });
+              $(".close_tag").fadeOut("fast");
+              $(".archivey-stuff").html('');
+          });//close grid 4 works
           var metrics_toggle;
           $(".metrics").click(function(){
               if(!metrics_toggle)
@@ -137,16 +146,9 @@
   <div class="col-xs-2 tag_col">
     <div class="col-xs-12">
       <span class="close_tag">X</span>
+        <div class="archivey-stuff"></div>
 
-
-      <ul class="tag_list">
-        <li><a href="">Archive</a><img src="img/png/archive18_white.png" alt="" width="20"></li>
-        <li><a href="">Challenges</a><img src="img/png/double126.png" alt="" width="20"></li>
-        <li><a href="">Mindfulness</a><img src="img/png/brain2.png" alt="" width="20"></li>
-        <li><a href="">Generosity</a><img src="img/png/handshake1.png" alt="" width="20"></li>
-        <li class="last"><a href="">Blank</a><img src="img/png/goofy.png" alt="" width="20"></li>
-
-      </ul>
+      <%= render "left_menu" %>
     </div>
   </div>
   <div class="col-xs-7 center_main" id="center_main">

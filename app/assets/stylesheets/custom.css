@@ -526,7 +526,9 @@ boxed styling Styling
     left: 0;
     z-index: 90;
 }
-
+.archives *{
+    text-align: center;
+}
 /*======= modal login styling =======*/
 
 #hidden_login_overlay{
