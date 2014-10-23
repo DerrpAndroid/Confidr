@@ -131,7 +131,7 @@
 <div class="row top_row">
   <div class="col-xs-2"></div>
   <div class="col-xs-8"><span style="font-size:2.5em;color:white;text-align:center;float:left;width:100%">Confidr</span></div>
-  <div class="col-xs-2"><%= link_to "Log out", logout_path, method: "delete" %></div>
+  <div class="col-xs-2"><%= link_to "Log out", logout_path, method: "delete" %><%= link_to "Settings", edit_user_path(current_user) %></div>
 </div>
 <div class="row mid_row">
   <div class="col-xs-2 tag_col">
