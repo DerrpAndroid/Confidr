@@ -1,9 +1,5 @@
-<% provide(:title, @user.name) %>
+<% provide(:title) %>
 
-<!--<h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
-</h1> -->
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -81,8 +77,8 @@
                   display:"none",
               });
               $(".close_tag").fadeIn("slow");
-              $(".archivey-stuff").load("archives.html");
-             // $(".archivey-stuff").html('<%= render "archives_tags"%>');
+              var server = '<%= request.host_with_port %>';
+              $(".archivey-stuff").html('<%= render "archives_tags"%>');
           });// expand grin 4 works
           $(".close_tag").click(function(){
               $(".tag_col").css({
@@ -146,44 +142,35 @@
   <div class="col-xs-2 tag_col">
     <div class="col-xs-12">
       <span class="close_tag">X</span>
-        <div class="archivey-stuff"></div>
+        <div class="archivey-stuff col-xs-12"></div>
 
       <%= render "left_menu" %>
     </div>
   </div>
   <div class="col-xs-7 center_main" id="center_main">
+    <%= form_for(@micropost) do |f| %>
+
     <div class="col-xs-12 post_heading">
-      <input form="post_post" type="text" id="post_heading" placeholder="Post Title" required>
+      <%= f.text_field :title, id:"post_heading", placeholder: "Post Title" %>
     </div>
     <div class="col-xs-12 post_body">
-      <label for="post_body"></label>
-      <textarea form="post_post" name="Post Body" id="post_body" cols="30" rows="10" placeholder="Feelings go here" required></textarea>
+      <%= f.text_area :content,:size => "30x10", id:"post_body", placeholder: "Feelings go here" %>
     </div>
     <div class="tag_submit">
       <ul class="tags_stuff">
-        <li><button class="first tooltiped" title="Appreciate the people and world around you. Practicing gratefulness is the key to a happy life. Do it thoughtfully and often.">Gratefulness</button></li>
-        <li><button class="tooltiped" title="Take time to record the moments that you treasure. It is these little memories that build a rich life. Truly- we’re not here for long.">Moments</button></li>
-        <li><button class="tooltiped" title="Cultivate a positive attitude.
-
-Practicing optimism and hopefulness has a long lasting effect on happiness.">Optimism</button></li>
-        <li><button class="tooltiped" title="Sometimes life sucks and that’s OK. Be honest, it helps to vent.
-
-Acknowledging setbacks is important for building resilience.">Consolations</button></li>
-        <li><button class="tooltiped" title="A place to preserve those moments of clarity.
-
-Remind your future self of the insights you gain today.">Lessons</button></li>
-        <li><button class="tooltiped" title="“The state of existing in reality”
-Confidr tags exist to nudge us towards meaningful introspection.
-But for the days that defy categorization there is Actualites.">Actualities</button></li>
-        <li><button class="tooltiped" title="Know your goals. Plan how to realize them.
-
-Writing your dreams and ambitions helps define your life's direction.">Ambitions</button></li>
-        <li><button class="last tooltiped" title="Capture that which uplifts and inspires your best work.
-
-Find motivation in the things around you to transcend the ordinary.">Inspiration</button></li>
+       <li> <%=f.radio_button :tag,"gratefulness"%><%= f.label :tag, 'Gratefulness', :value => 'gratefulness' %></li>
+        <li> <%=f.radio_button :tag,"moments"%><%= f.label :tag, 'Moments', :value => 'moments' %></li>
+        <li> <%=f.radio_button :tag,"optimism"%><%= f.label :tag, 'Optimism', :value => 'optimism' %></li>
+        <li><%=f.radio_button :tag,"consolation"%><%= f.label :tag, 'Consolation', :value => 'consolation' %></li>
+        <li> <%=f.radio_button :tag,"lessons"%><%= f.label :tag, 'Lessons', :value => 'lessons' %></li>
+        <li><%=f.radio_button :tag,"actualities"%><%= f.label :tag, 'Actualities', :value => 'actualities' %></li>
+        <li> <%=f.radio_button :tag,"ambitions"%><%= f.label :tag, 'Ambitions', :value => 'ambitions' %></li>
+        <li> <%=f.radio_button :tag,"inspiration"%><%= f.label :tag, 'Inspiration', :value => 'inspiration' %></li>
+        <%= f.submit "Post", class: "btn btn-primary" %>
       </ul>
     </div>
     <div class="prompt">Need a pointer?</div>
+    <% end %>
   </div>
   <div class="col-xs-2 metrics"><h3>Metrics</h3><span class="close_noti" style="float:right" id="metrics_tog">X</span></div>
 </div>

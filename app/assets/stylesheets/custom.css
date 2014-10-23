@@ -408,10 +408,10 @@ label{
 .tag_submit{
     display: none;
     float: right;
-    margin-top: -52px;
+    margin-top: -80px;
     margin-right: 20px;
 }
-.tags_stuff li button{
+.tags_stuff li{
     width: 115px;
     -webkit-appearance:none;
     background: none;
@@ -420,6 +420,18 @@ label{
     padding: 10px;
     font-size: 1.1em;
     letter-spacing: 2px;
+}
+.tags_stuff label {
+    font-size: inherit;
+    color: black;
+}
+.tags_stuff input[type=radio]:checked +label {
+    color:red;
+    font-size: 1.1em;
+}
+
+input[type=radio] {
+    -webkit-appearance:none;
 }
 .tags_stuff li button.last{
     border-bottom: none;
@@ -526,9 +538,7 @@ boxed styling Styling
     left: 0;
     z-index: 90;
 }
-.archives *{
-    text-align: center;
-}
+
 /*======= modal login styling =======*/
 
 #hidden_login_overlay{
@@ -571,4 +581,75 @@ boxed styling Styling
 .btn.btn-primary{
     clear: both;
     float: left;
+}
+
+
+
+
+
+/* microposts */
+.archivey-stuff>.col-xs-12 {
+    height: 350px;
+    overflow: scroll;
+}
+.microposts {
+    list-style: none;
+    padding: 0;
+}
+
+    .microposts .content {
+        display: block;
+        height: 50px;
+        float: none;
+    }
+    .microposts li:hover {
+        border-radius: 3px;
+        border-bottom: 0;
+        background: none;
+        color: white;
+        text-align: center;
+    }
+    .microposts img {
+        display: block;
+        padding: 5px 0;
+    }
+
+.microposts li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    width: 300px;
+    float: left;
+    margin: 10px;
+
+}
+.tag_col .archivey-stuff li:hover>img{
+    display: none;
+}
+.microposts li>span{
+
+}
+.timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+}
+.gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+}
+
+aside {
+textarea {
+    height: 100px;
+    margin-bottom: 5px;
+}
+}
+
+span.picture {
+    margin-top: 10px;
+input {
+    border: 0;
+}
 }
