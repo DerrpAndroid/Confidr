@@ -14,4 +14,5 @@ Rails.application.config.assets.precompile += %w( component.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( jquery-1.10.2.min.js )
 Rails.application.config.assets.precompile += %w( modernizr-2.6.2.min.js )
+Rails.application.config.assets.precompile += %w( modal.min.js )
 

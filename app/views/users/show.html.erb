@@ -1,6 +1,214 @@
 <% provide(:title, @user.name) %>
 
-<h1>
+<!--<h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
-</h1>
+</h1> -->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="js/jquery.tooltipster.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="js/tooltipster-master/css/tooltipster.css" />
+  <%= stylesheet_link_tag 'normalize', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'component', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'main', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'custom', media: 'all',
+                          'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery-1.10.2.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
+  <script>
+      $(document).ready(function(){
+          $("#post_heading,#post_body").click(function(){
+
+              $(".overlay").css({
+                  "display":"block",
+              });
+              $(".center_main").css({
+                  "zIndex":"100",
+              });
+              $(".post_heading,.post_body").css({
+                  "width":"80%",
+              });
+              $(".prompt").css({
+                  "display":"block",
+              });
+
+              setTimeout(function() {
+                  $(".tag_submit").css({
+                      "display":"block",
+                  });
+              }, 300);
+
+          }); //to highlight editor
+
+          $(".notification").click(function(){
+              $(".noti_container").css({
+                  "height":"83%",
+              });
+              $(".close_noti").fadeIn("slow");
+          }); // expand grid 8
+          $(".close_noti").click(function(){
+              $(".noti_container").css({
+                  "height":"18%",
+              });
+              $(".close_noti").fadeOut("slow");
+          });// close grid 8
+          $(".tag_col").click(function(){
+              $(".tag_col").css({
+                  "width":"98%",
+                  "z-index":"100"
+              });
+              $(".close_tag").fadeIn("slow");
+
+          });// expand grin 4 doesnt work
+          $(".close_tag").click(function(){
+              $(".tag_col").css({
+                  "width":"10%",
+              });
+          });//close grid 4 doesnt work
+          var metrics_toggle;
+          $(".metrics").click(function(){
+              if(!metrics_toggle)
+              {
+                  $(".metrics").animate({
+                      width:"+=81%",
+                      marginLeft:"-=81%",
+                  });
+                  document.getElementById("metrics_tog").style.display="block";
+                  metrics_toggle=1;
+              }
+              else if(metrics_toggle){
+                  $(".metrics").animate({
+                      width:"16.6666%",
+                      marginLeft:"",
+                  });
+              }
+          }); //open and close metrics grid
+
+      });
+  </script>
+  <script>
+      $(document).ready(function() {
+          $('.tooltiped').tooltipster({
+              animation: 'fade',
+              delay: 200,
+              theme: 'tooltipster-default',
+              touchDevices: false,
+              trigger: 'hover',
+              maxWidth:300,
+              position:'top-left',
+          });
+      });
+  </script>
+
+</head>
+<body style="overflow:hidden;font-family:'Aliquam',open-sans;letter-spacing:2px">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="overlay"></div>
+<div class="row top_row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-8"><span style="font-size:2.5em;color:white;text-align:center;float:left;width:100%">Confidr</span></div>
+  <div class="col-xs-2"><%= link_to "Log out", logout_path, method: "delete" %></div>
+</div>
+<div class="row mid_row">
+  <div class="col-xs-2 tag_col">
+    <div class="col-xs-12">
+      <span class="close_tag">X</span>
+
+
+      <ul class="tag_list">
+        <li><a href="">Archive</a><img src="img/png/archive18_white.png" alt="" width="20"></li>
+        <li><a href="">Challenges</a><img src="img/png/double126.png" alt="" width="20"></li>
+        <li><a href="">Mindfulness</a><img src="img/png/brain2.png" alt="" width="20"></li>
+        <li><a href="">Generosity</a><img src="img/png/handshake1.png" alt="" width="20"></li>
+        <li class="last"><a href="">Blank</a><img src="img/png/goofy.png" alt="" width="20"></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-7 center_main" id="center_main">
+    <div class="col-xs-12 post_heading">
+      <input form="post_post" type="text" id="post_heading" placeholder="Post Title" required>
+    </div>
+    <div class="col-xs-12 post_body">
+      <label for="post_body"></label>
+      <textarea form="post_post" name="Post Body" id="post_body" cols="30" rows="10" placeholder="Feelings go here" required></textarea>
+    </div>
+    <div class="tag_submit">
+      <ul class="tags_stuff">
+        <li><button class="first tooltiped" title="Appreciate the people and world around you. Practicing gratefulness is the key to a happy life. Do it thoughtfully and often.">Gratefulness</button></li>
+        <li><button class="tooltiped" title="Take time to record the moments that you treasure. It is these little memories that build a rich life. Truly- we’re not here for long.">Moments</button></li>
+        <li><button class="tooltiped" title="Cultivate a positive attitude.
+
+Practicing optimism and hopefulness has a long lasting effect on happiness.">Optimism</button></li>
+        <li><button class="tooltiped" title="Sometimes life sucks and that’s OK. Be honest, it helps to vent.
+
+Acknowledging setbacks is important for building resilience.">Consolations</button></li>
+        <li><button class="tooltiped" title="A place to preserve those moments of clarity.
+
+Remind your future self of the insights you gain today.">Lessons</button></li>
+        <li><button class="tooltiped" title="“The state of existing in reality”
+Confidr tags exist to nudge us towards meaningful introspection.
+But for the days that defy categorization there is Actualites.">Actualities</button></li>
+        <li><button class="tooltiped" title="Know your goals. Plan how to realize them.
+
+Writing your dreams and ambitions helps define your life's direction.">Ambitions</button></li>
+        <li><button class="last tooltiped" title="Capture that which uplifts and inspires your best work.
+
+Find motivation in the things around you to transcend the ordinary.">Inspiration</button></li>
+      </ul>
+    </div>
+    <div class="prompt">Need a pointer?</div>
+  </div>
+  <div class="col-xs-2 metrics"><h3>Metrics</h3><span class="close_noti" style="float:right" id="metrics_tog">X</span></div>
+</div>
+<div class="row bot_row">
+
+  <div class="col-xs-7 noti_container" style="">
+    <span class="close_noti" style="float:right">X</span>
+    <div class="col-xs-3 notification newpost"><span>new</span></div>
+    <div class="col-xs-3 notification old_post"><span>old</span></div>
+    <div class="col-xs-3 notification curated_c newpost">Curated Content</div>
+  </div>
+
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+</body>
+</html>
+

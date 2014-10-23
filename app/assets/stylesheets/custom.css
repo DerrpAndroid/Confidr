@@ -1,7 +1,8 @@
 html,body{
     height: 100%;
     font-family: "Open Sans",sans-serif;
-    background-color:#f3f5fa; 
+    background-color:#f3f5fa;
+    transition:.2s all linear;
 }
 .screen{
     height: 100%;
@@ -286,7 +287,7 @@ Login Content Styling
     height: inherit;
 }
 .row .col-xs-8{
-    background: white;
+    /*background: white;*/
     height: inherit;
 }
 .row .col-xs-7{
@@ -526,3 +527,46 @@ boxed styling Styling
     z-index: 90;
 }
 
+/*======= modal login styling =======*/
+
+#hidden_login_overlay{
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    background-color: rgba(0,0,0,.3);
+    display: none;
+    z-index: 1000;
+}
+
+#hidden_login_modal{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -150px;
+    background: white;
+    border-radius: 3px;
+    height: 300px;
+    width:500px;
+    color: black;
+}
+
+.modal_label{
+    color:black;
+    float: left;
+    clear:both;
+}
+.modal_input{
+    float: right;
+    margin-right: 40px;
+    width: 300px;
+}
+.modal_input, .modal_label{
+    margin-top: 30px;
+}
+.btn.btn-primary{
+    clear: both;
+    float: left;
+}

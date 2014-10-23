@@ -30,9 +30,28 @@
       $(document).ready(function(){
           var button_flag_mail=0;
           $("#clear_login").click(function(){
-              $(".header_top").fadeOut("slow");
-              $(".container").fadeOut("slow");
-              $("#theForm").fadeIn(1000);
+                $("body").css({
+                    webkitTransform:"scale(.9)",
+                    overflow:"hidden", //make a way to reverse this
+                });
+              $(".screen").css({
+                  webkitFilter:"saturate(.4) blur(1px)",
+              });
+              $("#hidden_login_overlay").css({
+                  display:"block",
+              });
+              $(".close_modal").click(function(){
+                  $("body").css({
+                      webkitTransform:"",
+                      overflow:"", //make a way to reverse this
+                  });
+                  $(".screen").css({
+                      webkitFilter:"",
+                  });
+                  $("#hidden_login_overlay").css({
+                      display:"none",
+                  });
+              });
           });
           $(".reg_but").click(function(){
 
@@ -90,7 +109,23 @@
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
+    <div id="hidden_login_overlay">
+        <div id="hidden_login_modal">
+          <%= form_for(:session, url: login_path) do |f| %>
+              <h1>Login<span class="close_modal" style="float: right;clear:both">X</span></h1>
 
+              <%= flash[:danger] if flash[:danger] %>
+
+              <%= f.label :email, nil, :class=>"modal_label"  %>
+              <%= f.text_field :email, :class=>"modal_input"  %>
+
+              <%= f.label :password, nil, :class=>"modal_label" %>
+              <%= f.password_field :password, :class=>"modal_input"  %>
+
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+    </div>
 <!-- Add your site or application content here -->
 <div class="screen">
   <div class="row header_top">
@@ -99,7 +134,7 @@
       <div class="col-xs-8 menu_items">
         <ul>
           <li class="active"><h4><%= link_to "Login", '#', id:"clear_login" %></h4></li>
-          <li><h4><%= link_to "About ", static_pages_about_path %></h4></li>
+          <li><h4><%= link_to "About ", about_path %></h4></li>
           <li><h4><%= link_to "Home", '#' %></h4></li>
         </ul>
       </div>
