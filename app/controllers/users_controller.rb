@@ -27,6 +27,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @micropost = current_user.microposts.build if logged_in?
+    @notifications=@user.notifications
+    puts @notifications
+    @noti_body= @microposts.pluck(:id).sample
+    @body=Micropost.find_by_id(@noti_body)
+    # puts @body
+    @notif=Notification.where("global= ?",true).first(1)
+    # puts @notif
+    @rand=rand(1..7)
   end
   def edit
     @user = User.find(params[:id])
@@ -44,7 +52,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       flash[:success] = "Welcome to the Confidr!"
-      log_in @user
+      log_in @user #replace with onboarding screen/video or whatever
       redirect_to @user
     else
       render 'new'

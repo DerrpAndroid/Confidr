@@ -408,7 +408,7 @@ label{
 .tag_submit{
     display: none;
     float: right;
-    margin-top: -80px;
+    margin-top: -65px;
     margin-right: 20px;
 }
 .tags_stuff li{
@@ -421,12 +421,18 @@ label{
     font-size: 1.1em;
     letter-spacing: 2px;
 }
+.tags_stuff label:hover{
+    color: #f16555;
+    cursor: pointer;
+}
+
+
 .tags_stuff label {
     font-size: inherit;
     color: black;
 }
 .tags_stuff input[type=radio]:checked +label {
-    color:red;
+    color:#f16555;
     font-size: 1.1em;
 }
 
@@ -472,6 +478,7 @@ Grid 8 Styling
     transition: .3s all linear;
     margin-left: 4%;
     margin-right: 4%;
+    overflow: hidden;
 }
 
 .notification:hover{
@@ -579,8 +586,9 @@ boxed styling Styling
     margin-top: 30px;
 }
 .btn.btn-primary{
-    clear: both;
-    float: left;
+    float: right;
+    margin: 15px;
+    display: none;
 }
 
 
@@ -606,14 +614,16 @@ boxed styling Styling
         border-radius: 3px;
         border-bottom: 0;
         background: none;
-        color: white;
+        color: black;
         text-align: center;
     }
     .microposts img {
         display: block;
         padding: 5px 0;
     }
-
+.tag_col .archivey-stuff span {
+    display: block;
+}
 .microposts li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -631,7 +641,8 @@ boxed styling Styling
 .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
+    text-align: center;
+    font-size: .8em;
 }
 .gravatar {
     float: left;
@@ -652,4 +663,12 @@ span.picture {
 input {
     border: 0;
 }
+}
+
+/*==========================================================================================
+Questions Styling
+==========================================================================================*/
+
+.questions{
+    display: none;
 }

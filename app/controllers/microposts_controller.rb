@@ -13,14 +13,18 @@ class MicropostsController < ApplicationController
     @micropost.senti=response.body['result']['sentiment']
     if @micropost.save
       flash[:success] = "Micropost created!"
-      puts response.body['result']['sentiment']
-      redirect_to current_user
+      #puts response.body['result']['sentiment']
+
+      redirect_to :back
     else
       render 'users/show'
     end
   end
 
   def destroy
+  end
+  def show
+    @post=Micropost.find_by(params[:id])
   end
   private
 

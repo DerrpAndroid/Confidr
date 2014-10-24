@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'account_activations/edit'
 
   root   :to => 'static_pages#home'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
   get    'signup'  => 'users#new'
+  get    'microposts'=>'microposts#show'
   get    'login'   => 'sessions#new'
   get    'logout' => 'sessions#destroy'
   post   'login'   => 'sessions#create'

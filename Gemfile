@@ -12,7 +12,12 @@ gem 'rails-html-sanitizer', '1.0.1'
 gem 'faker',                '1.4.2'
 gem 'will_paginate',           '3.0.7'
 gem 'unirest'
+gem 'devise'
+gem "chartkick"
+gem 'groupdate', '~> 2.1.1'
+gem 'active_median', '~> 0.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'sdoc',                 '0.4.0', group: :doc
 
 
