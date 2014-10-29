@@ -137,7 +137,10 @@
                 $(".questions").html('<%= render 'question' %>');
 
               <%end%>
-
+                $("#post_submit_after_question").click(function(){
+                    alert("asd");
+                    $("#new_micropost").submit();
+                });
 
 
               //$("#new-micropost").submit();

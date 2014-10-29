@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @noti_body= @microposts.pluck(:id).sample
     @body=Micropost.find_by_id(@noti_body)
     # puts @body
-    @notif=Notification.where("global= ?",true).first(1)
+    @notif=Notification.where("global= ?",true && "created_at == updated_at").first(1) #make comparsion of created at and updated at to know if it is read or not
     # puts @notif
     @rand=rand(1..7)
   end
