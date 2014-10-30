@@ -137,7 +137,9 @@
                 $(".questions").html('<%= render 'question' %>');
 
               <%end%>
-
+               $("#post_submit_after_question").click(function(){
+                   $("#new-micropost").submit();
+               });
 
 
               //$("#new-micropost").submit();
