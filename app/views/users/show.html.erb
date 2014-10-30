@@ -135,15 +135,15 @@
             });
               <% if @rand%>
                 $(".questions").html('<%= render 'question' %>');
-
               <%end%>
-               $("#post_submit_after_question").click(function(){
-                   $("#new-micropost").submit();
-               });
+              $("#post_submit_after_question").click(function(){
+                  $("#new_micropost").submit();
+              });
 
 
               //$("#new-micropost").submit();
           });
+
       });
   </script>
   <script>
