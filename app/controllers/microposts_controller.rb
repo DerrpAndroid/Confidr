@@ -10,7 +10,9 @@ class MicropostsController < ApplicationController
                             parameters:{
                                 "txt" => @micropost.content
                             }
-    @micropost.senti=response.body['result']['sentiment']
+    puts(response)
+    #@micropost.senti=response.body['result']['sentiment']
+
     if @micropost.save
       flash[:success] = "Micropost created!"
       #puts response.body['result']['sentiment']
@@ -20,15 +22,15 @@ class MicropostsController < ApplicationController
       render 'users/show'
     end
   end
-
   def destroy
   end
   def show
     @post=Micropost.find_by(params[:id])
   end
+
   private
 
   def micropost_params
-    params.require(:micropost).permit(:content,:title,:tag,:senti)
+    params.require(:micropost).permit(:content,:title,:tag,:senti,:sleephours,:health,:meditate,:happiness)
   end
 end

@@ -6,4 +6,7 @@
   <data-source source="LOCAL" name="Rails scaffo: test" uuid="d60d8453-3d0c-4616-8690-c49cb6f88c8e">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails scaffo: production" uuid="1a0892b6-adad-4615-9ddb-ab5a2e9a24a3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

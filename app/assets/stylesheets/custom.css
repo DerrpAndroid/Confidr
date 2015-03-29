@@ -302,7 +302,13 @@ Metrics Content Styling
     right: 4%;
     top: 13%;
 }
-
+#chart-1{
+    float: left;
+    width: 100%;
+}
+#stats,#chart,#chart1{
+    display: none;
+}
 
 /*==========================================================================================
 Grid 4 Styling
@@ -647,16 +653,26 @@ boxed styling Styling
     margin-right: 10px;
     margin-top: 5px;
 }
-
-
-
-
-
-
 /*==========================================================================================
 Questions Styling
 ==========================================================================================*/
 
 .questions{
     display: none;
+}
+#slider{
+    width:83%;
+    margin:0 auto;
+}
+.faces>a:nth-child(2)>img{
+    float: right;
+}
+.meditation{
+    text-align: center;
+}
+.meditatebuttons{
+    text-align: center;
+}
+.sleepmeter,#sleep-slider{
+    float:left;
 }

@@ -19,6 +19,7 @@ gem 'active_median', '~> 0.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'sdoc',                 '0.4.0', group: :doc
+gem "google_visualr", "~> 2.1.0"
 
 
 group :development, :test do
