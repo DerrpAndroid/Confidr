@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327185752) do
+ActiveRecord::Schema.define(version: 20150401005615) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20150327185752) do
     t.string   "senti"
     t.string   "sleephours"
     t.string   "health"
-    t.string   "happiness"
     t.string   "meditate"
+    t.string   "happiness"
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 20150327185752) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "password_digest"
-    t.boolean  "admin",           default: false
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

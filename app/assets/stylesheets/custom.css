@@ -66,8 +66,8 @@ BG Styling
 
 .bg_video{
     position: absolute;
-    top: -20px;
     z-index: 0;
+    top:-20px;
      
 }
 
@@ -122,7 +122,6 @@ Home Content Styling
     color: white;
     -webkit-font-smoothing: antialiased;
     margin-bottom: 0;
-    
 }
 .confidr h4{
     text-align: center;
@@ -157,7 +156,7 @@ Home Content Styling
 
 .register_options{
     margin-top: 12.5%;
-    width: 600px;
+    width: 597px;
     transition: .3s all linear;
 }
 .register_options button{
@@ -182,6 +181,12 @@ Home Content Styling
 }
 #home_reg input:focus{
     outline:  #f16555 auto 5px;
+}
+.regforms>form>input{
+    width:49%;
+    line-height:30px;
+    background:rgba(0,0,0,0);
+    color:white;
 }
 /*==========================================================================================
 Tutorial Styling
@@ -267,7 +272,10 @@ Footer Styling
 .lowersitemap li{
     float: left;
 }
-
+.footer_social{
+    margin-right:2%;
+    margin-left:5%;
+}
 /*==========================================================================================
 Login Content Styling
 ==========================================================================================*/
@@ -293,7 +301,6 @@ Login Content Styling
     background: white;
     height: inherit;
 }
-
 /*==========================================================================================
 Metrics Content Styling
 ==========================================================================================*/
@@ -660,19 +667,60 @@ Questions Styling
 .questions{
     display: none;
 }
-#slider{
+#slider,#health-slider{
     width:83%;
     margin:0 auto;
 }
-.faces>a:nth-child(2)>img{
+.faces,.health{
+    margin: 8% 0px;
+    padding:0px 6%;
+}
+.faces>img{
+    background:#B3B355;
+}
+.health>img{
+    opacity:.6;
+}
+.faces>img:nth-child(2),.health>img:nth-child(2){
     float: right;
 }
 .meditation{
     text-align: center;
+    margin:4% 0px;
+}
+.meditation>img{
+    width:140px;
+    background:black;
 }
 .meditatebuttons{
     text-align: center;
 }
+.qsleep{
+    text-align: center;
+}
+.qsleep>div{
+    margin:8% 0px;
+}
 .sleepmeter,#sleep-slider{
-    float:left;
+    display:inline-block;
+    vertical-align: middle;
+}
+.sleepmeter{
+    width:140px;
+    margin-right: 50px;
+    position:relative;
+}
+.sleepamt{
+    position:absolute;
+    width:100%;
+    height:7%;
+    bottom:0px;
+    background:#AAFF79;
+}
+#sleep-slider{
+    height:200px;
+}
+.controls{
+    text-align: center;
+    margin-top: 30px;
 }

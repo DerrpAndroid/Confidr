@@ -74,12 +74,12 @@
                               "width":"0%",
                           });
                           $("#reg_socm").fadeOut(100);
-                          $(".regforms").html('<form id="home_reg" action="" method=""><input type="text" id="home_reg_name" placeholder="John Doe"><input type="email" id="home_reg_mail" placeholder="john@doe.com"><input type="password" id="home_reg_password" placeholder="Password" style="width:600px;"><input type="password" id="home_reg_password" placeholder="Re-Enter Password" style="width:600px;"> </form>');
+                          $(".regforms").html('<%= render "registration_form" %>');
                           button_flag_mail=1;
                       }
                       else if(button_flag_mail)
                       {
-                          alert("Submited Form");
+                          $('.regforms>form').submit();
                       }
                       break;
 
@@ -217,41 +217,8 @@
       <div class="social_butt">Facetube</div>
       <div class="social_butt">Twitface</div>
     </div>
-    <div class="col-xs-8 footer_mid"><div class="row upperaaron"><span style="font-size:2em">Aaron</span> says<br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam doloremque officiis, voluptas temporibus enim dolorem quibusdam possimus, vitae deleniti.</div><div class="row lowersitemap"><ul>
-      <li>Lorem.</li>
-      <li>Excepturi!</li>
-      <li>Sint.</li>
-      <li>Natus!</li>
-      <li>Vel!</li>
-    </ul></div></div>
-    <div class="col-xs-2 footer_contact">c</div>
+    <div class="col-xs-8 footer_mid"><div class="row upperaaron"><span style="font-size:2em">Aaron</span> says<br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum ipsam doloremque officiis, voluptas temporibus enim dolorem quibusdam possimus, vitae deleniti.</div></div>
   </div>
-</div>
-<div class="row form_login">
-  <form id="theForm" class="simform" autocomplete="off" action="">
-    <div class="simform-inner">
-      <ol class="questions">
-        <li>
-          <span><label for="q1" id="first_label">Login ID</label></span>
-          <input id="name" name="name" type="text"/>
-        </li>
-        <li>
-          <span><label for="q2">Password</label></span>
-          <input id="email" name="email" type="text"/>
-        </li>
-
-
-      </ol><!-- /questions -->
-      <button class="submit" type="submit">Send answers</button>
-      <div class="controls">
-        <button class="next"></button>
-        <div class="progress"></div>
-
-        <span class="error-message"></span>
-      </div><!-- / controls -->
-    </div><!-- /simform-inner -->
-    <span class="final-message"></span>
-  </form><!-- /simform -->
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

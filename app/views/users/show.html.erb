@@ -35,13 +35,75 @@
   <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <script>
+    $(document).ready(function(){
+        $("#post_heading,#post_body").click(function(){
+            console.log("trigger-post");
+            $(".overlay").css({
+                "display":"block",
+            });
+            $(".center_main").css({
+                "zIndex":"100",
+            });
+            $(".post_heading,.post_body").css({
+                "width":"80%",
+            });
+            $(".prompt").css({
+                "display":"block",
+            });
+
+            setTimeout(function() {
+                $(".tag_submit,.btn.btn-primary").css({
+                    "display":"block",
+                });
+            }, 300);
+        }); //to highlight editor
+    });
+
+
+  </script>
+  <script>
       $(document).ready(function(){
+          var sface=$('.sad-face');
+          var hface=$('.happy-face');
+          var sleepamt=$('.sleepamt');
+          var food = $('.food');
+          var weight = $('.weight');
+          $('.formprev').click(function(){
+              $(this).parent().parent().hide();
+              $(this).parent().parent().prev().show();
+          });
+          $('.formnext').click(function(){
+              $(this).parent().parent().hide();
+              $(this).parent().parent().next().show();
+          });
           $('#slider').slider({
               min:0,
               max:4,
               value:2,
               slide: function( event, ui ) {
                   $( "#happiness" ).val(ui.value * 25);
+                  switch(ui.value){
+                      case 0:
+                          sface.stop().animate({backgroundColor:'yellow'});
+                          hface.stop().animate({backgroundColor:'gray'});
+                          break;
+                      case 1:
+                          sface.stop().animate({backgroundColor:'#CDCD3A'});
+                          hface.stop().animate({backgroundColor:'#96966C'});
+                          break;
+                      case 2:
+                          sface.stop().animate({backgroundColor:'#B3B355'});
+                          hface.stop().animate({backgroundColor:'#B3B355'});
+                          break;
+                      case 3:
+                          sface.stop().animate({backgroundColor:'#96966C'});
+                          hface.stop().animate({backgroundColor:'#CDCD3A'});
+                          break;
+                      case 4:
+                          sface.stop().animate({backgroundColor:'gray'});
+                          hface.stop().animate({backgroundColor:'yellow'});
+                          break;
+                  }
               }
           });
           $('#health-slider').slider({
@@ -50,6 +112,28 @@
               value:2,
               slide: function( event, ui ) {
                   $( "#health" ).val(ui.value * 25);
+                  switch(ui.value){
+                      case 0:
+                          weight.stop().animate({opacity:'.1'});
+                          food.stop().animate({opacity:'1'});
+                          break;
+                      case 1:
+                          weight.stop().animate({opacity:'.4'});
+                          food.stop().animate({opacity:'.8'});
+                          break;
+                      case 2:
+                          weight.stop().animate({opacity:'.6'});
+                          food.stop().animate({opacity:'.6'});
+                          break;
+                      case 3:
+                          weight.stop().animate({opacity:'.8'});
+                          food.stop().animate({opacity:'.4'});
+                          break;
+                      case 4:
+                          weight.stop().animate({opacity:'1'});
+                          food.stop().animate({opacity:'.1'});
+                          break;
+                  }
               }
           });
           $('#sleep-slider').slider({
@@ -58,31 +142,36 @@
               max:10,
               slide: function( event, ui ) {
                   $( "#sleep_hours" ).val(ui.value);
+                  switch(ui.value){
+                      case 5:
+                          sleepamt.stop().animate({height:'7%'});
+                          break;
+                      case 6:
+                          sleepamt.stop().animate({height:'20%'});
+                          break;
+                      case 7:
+                          sleepamt.stop().animate({height:'40%'});
+                          break;
+                      case 8:
+                          sleepamt.stop().animate({height:'60%'});
+                          break;
+                      case 9:
+                          sleepamt.stop().animate({height:'80%'});
+                          break;
+                      case 10:
+                          sleepamt.stop().animate({height:'100%'});
+                          break;
+                  }
               }
           });
-          $('.medyes').click(function(){$('#meditate').val('1')});
-          $('.medno').click(function(){$('#meditate').val('0')});
-          $("#post_heading,#post_body").click(function(){
-              $(".overlay").css({
-                  "display":"block",
-              });
-              $(".center_main").css({
-                  "zIndex":"100",
-              });
-              $(".post_heading,.post_body").css({
-                  "width":"80%",
-              });
-              $(".prompt").css({
-                  "display":"block",
-              });
-
-              setTimeout(function() {
-                  $(".tag_submit,.btn.btn-primary").css({
-                      "display":"block",
-                  });
-              }, 300);
-
-          }); //to highlight editor
+          $('.medyes').click(function(){
+              $('.medimg').css('background','#50CD73');
+              $('#meditate').val('1');
+          });
+          $('.medno').click(function(){
+              $('.medimg').css('background','#FD7F7F');
+              $('#meditate').val('0');
+          });
           $(".overlay").click(function(){
               $(".overlay").css({
                   "display":"",
@@ -125,7 +214,7 @@
                   display:"none",
               });
               $(".close_tag").fadeIn("slow");
-              $(".archivey-stuff").html(); //  render "archives_tags" paste this inside html function. breaking for some reason
+              $(".archivey-stuff").html('<%= render 'archives_tags' %>'); //  render "archives_tags" paste this inside html function. breaking for some reason
           });// expand grin 4 works
           $(".close_tag").click(function(){
               $(".tag_col").css({
@@ -161,9 +250,9 @@
               }
           }); //open and close metrics grid
           $(".btn.btn-primary").click(function(){
-            $(".questions").css({
-                display:"block"
-            });
+              $(".questions").css({
+                  display:"block"
+              });
 
               $("#post_submit_after_question").click(function(){
                   $("#new_micropost").submit();
@@ -171,20 +260,6 @@
 
 
               //$("#new-micropost").submit();
-          });
-
-      });
-  </script>
-  <script>
-      $(document).ready(function() {
-          $('.tooltiped').tooltipster({
-              animation: 'fade',
-              delay: 200,
-              theme: 'tooltipster-default',
-              touchDevices: false,
-              trigger: 'hover',
-              maxWidth:300,
-              position:'top-left',
           });
       });
   </script>
@@ -232,47 +307,65 @@
         <li> <%=f.radio_button :tag,"inspiration"%><%= f.label :tag, 'Inspiration', :value => 'inspiration' %></li>
       </ul>
     </div>
-    <div class="prompt">Need a pointer?</div><%= button_tag "Stuff", class: "btn btn-primary",:type=>"button" %>
-        <div class="col-xs-12">
+    <div class="prompt" style="display:none">Need a pointer?</div><%= button_tag "Stuff", class: "btn btn-primary",:type=>"button" %>
+        <div class="col-xs-12" style="display:none">
           <%= f.text_field :happiness, id:"happiness", placeholder: "How Happy are you?",value:50 %>
           <%= f.text_field :sleephours, id:"sleep_hours", placeholder: "How Many Hours Of Sleep?",value:5 %>
-          <%= f.text_field :meditate, id:"meditate", placeholder: "Did you meditate?" %>
+          <%= f.text_field :meditate, id:"meditate", placeholder: "Did you meditate?",value:0 %>
           <%= f.text_field :health, id:"health", placeholder: "Your Diet", value: "50" %>
           <button id="post_submit_after_question">Submit Forms</button>
         </div>
-        <div class="questions center_main col-xs-7" id="questions" style="display:none;width:100%;height:80%;top:0px;left:0px;">
-          <div class="qhappiness" style="display:none;">
+        <div class="questions center_main col-xs-7" id="questions" style="display:none;width:100%;height:100%;top:0px;left:0px;">
+          <div class="qhappiness" style="display:block;">
             <h2>How happy are you today?</h2>
             <div class="faces">
               <%= image_tag("sad70.png", alt: "Sad Face",class:'sad-face')  %>
               <%= image_tag("happy47.png", alt: "Happy Face",class:'happy-face') %>
             </div>
             <div id="slider"></div>
+            <div class="controls">
+              <button type="button" class="formnext">Next</button>
+            </div>
           </div>
-          <div class="qmeditate">
+          <div class="qmeditate" style="display:none;">
             <h2>Did you meditate in the last 24 hours?</h2>
             <div class="meditation">
-              <%= image_tag("yoga14.png", alt: "Meditation",class:'meditation')  %>
+              <%= image_tag("yoga14.png", alt: "Meditation",class:'medimg')  %>
             </div>
             <div class="meditatebuttons">
                 <button type="button" class="medyes">Yes</button>
                 <button type="button" class="medno">No</button>
             </div>
+                <div class="controls">
+                  <button type="button" class="formprev">Prev</button>
+                  <button type="button" class="formnext">Next</button>
+                </div>
           </div>
           <div class="qsleep" style="display:none;">
             <h2>How much sleep did you get last night?</h2>
-            <div class="sleepmeter">
-              <%= image_tag("battery123.png", alt: "Sleep Meter",class:'sleepmeter')  %>
+            <div>
+                <div class="sleepmeter">
+                  <div class="sleepamt"></div>
+                  <%= image_tag("battery123.png", alt: "Sleep Meter",class:'sleepmeter')  %>
+                </div>
+                <div id="sleep-slider"></div>
             </div>
-            <div id="sleep-slider"></div>
-          </div>
+            <div class="controls">
+                <button type="button" class="formprev">Prev</button>
+                <button type="button" class="formnext">Next</button>
+              </div>
+            </div>
           <div class="qhealth" style="display:none;">
             <h2>Considering your diet and excercise how healthy your last 24 hours been?</h2>
-            <div class="faces">
+            <div class="health">
               <%= image_tag("fast-food7.png", alt: "Fast Food",class:'food')  %>
               <%= image_tag("weightlifting4.png", alt: "Weight Lifting",class:'weight') %>
             </div>
             <div id="health-slider"></div>
+            <div class="controls">
+              <button type="button" class="formprev">Prev</button>
+              <button id="post_submit_after_question">Submit Forms</button>
+            </div>
           </div>
         </div>
   <% end %>
@@ -282,7 +375,7 @@
     <div id="stats">
       <p>Your Average Post Length is : <%= @avg_post_lenght.inspect %></p>
         <p>The most used tag is : "<%= @maxi.keys[0] %>" and it was used <%=h @maxi.values[0] %> time(s)</p>
-      <p>You were the happiest when you had <%=@happysleep.values[8] %> hours sleep</p>
+      <p><% if @happysleep %>You were the happiest when you had  <%= @happysleep.values[8] %> hours sleep <% end %></p>
     </div>
     <div id='chart' style="float:left"></div>
     <%= render_chart @chart, 'chart' %>

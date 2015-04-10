@@ -10,8 +10,8 @@ class MicropostsController < ApplicationController
                             parameters:{
                                 "txt" => @micropost.content
                             }
-    puts(response)
-    #@micropost.senti=response.body['result']['sentiment']
+    puts(response.body)
+    @micropost.senti=response.body['result']['sentiment']
 
     if @micropost.save
       flash[:success] = "Micropost created!"
@@ -19,7 +19,8 @@ class MicropostsController < ApplicationController
 
       redirect_to :back
     else
-      render 'users/show'
+      #render 'users/show'
+      redirect_to :back
     end
   end
   def destroy

@@ -125,11 +125,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
+      puts ("submitted")
       flash[:success] = "Welcome to the Confidr!"
       log_in @user #replace with onboarding screen/video or whatever
       redirect_to @user
     else
-      render 'new'
+      puts(@user.errors.full_messages )
+      redirect_to :back
     end
   end
     private
